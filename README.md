@@ -4,7 +4,8 @@ Data and matlab code for paper "A System for Real-Time Syringe Classification an
 ## Instructions
 - `Main_Program.m` is the file to run the test
 - Each `NeuralNetwork_xxml.m` file are the program to load the data and save the trained model
-- Each `NeuralNetwork_xxml.net` are the trained model for each syringes
+- Each `NeuralNetwork_xxml.mat` are the trained model for each syringes
+- `template_matching.m`: function to match the syringe cap and search over the whole image, and find the center of the syringe cap
 
 ## Data
 - `X`: length of the plunger in pixels
