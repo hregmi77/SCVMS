@@ -1,0 +1,20 @@
+filename = 'Data_3ml.xls';
+[ndata, text, rawdata] = xlsread(filename);
+rawdata = cell2mat(rawdata);
+x = rawdata(:,1);
+x = transpose(x);
+t = rawdata(:,2);
+t = transpose(t);
+figure(1),plot(x,t,'o');
+xlabel('Length');
+ylabel('Volume');
+title('Before Training');
+net3 = feedforwardnet(10);
+net3 = configure(net3,x,t);
+net3 = train(net3,x,t);
+y2 = net3(x);
+figure(2),plot(x,t,'o',x,y2,'*');
+xlabel('Length');
+ylabel('Volume');
+title('After Training');
+save Neuralnetwork_3ml net3

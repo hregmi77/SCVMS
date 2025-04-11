@@ -1,0 +1,20 @@
+filename = 'Data_30ml.xlsx';
+[ndata, text, rawdata] = xlsread(filename);
+rawdata = cell2mat(rawdata);
+x = rawdata(:,1);
+x = transpose(x);
+t = rawdata(:,2);
+t = transpose(t);
+figure(1),plot(x,t,'o');
+xlabel('Length');
+ylabel('Volume');
+title('Before Training');
+net30 = feedforwardnet(10);
+net30 = configure(net30,x,t);
+net30 = train(net30,x,t);
+y2 = net30(x);
+figure(2),plot(x,t,'o',x,y2,'*');
+xlabel('Length');
+ylabel('Volume');
+title('After Training');
+save Neuralnetwork_30ml net30
